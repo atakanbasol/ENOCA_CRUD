@@ -1,10 +1,10 @@
-package com.atakanbasol;
+package com.atakanbasol.exam;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExamApplicationTests {
+class CRUDApplicationTests {
 
     @Test
     void contextLoads() {
