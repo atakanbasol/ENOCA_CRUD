@@ -1,5 +1,4 @@
 package com.atakanbasol.crud.data.entity;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,5 +20,27 @@ public class OrderEntity {
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
 
-    // Getter ve Setter metotları
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
+
+    public BigDecimal getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(BigDecimal totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public CustomerEntity getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(CustomerEntity customer) {
+        this.customer = customer;
+    }
 }
