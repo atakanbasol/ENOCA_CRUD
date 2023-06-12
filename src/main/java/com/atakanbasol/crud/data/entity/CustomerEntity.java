@@ -1,13 +1,11 @@
 package com.atakanbasol.crud.data.entity;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.List;
-
 
 @Entity
 @Table(name = "customers")
@@ -24,4 +22,3 @@ public class CustomerEntity {
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<OrderEntity> orders;
 }
-
