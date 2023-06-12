@@ -1,10 +1,17 @@
 package com.atakanbasol.crud.data.entity;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
+@Getter
+@Setter
+@ToString
 public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

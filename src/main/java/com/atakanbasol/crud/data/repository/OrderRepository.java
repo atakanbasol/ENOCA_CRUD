@@ -6,6 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface OrderRepository extends JpaRepository<OrderEntity, Long> {
-    // OrderEntity için özelleştirilmiş sorgular ve işlemler burada tanımlanabilir
 }
 

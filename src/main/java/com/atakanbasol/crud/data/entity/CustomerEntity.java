@@ -10,12 +10,11 @@ import java.util.List;
 
 
 @Entity
-@Table(name = "customer")
+@Table(name = "customers")
 @Getter
 @Setter
 @ToString
 public class CustomerEntity {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -23,7 +22,6 @@ public class CustomerEntity {
     private Integer age;
 
     @OneToMany(mappedBy = "customer")
-    private List<OrderEntity> order;
-
+    private List<OrderEntity> orders;
 }
 
