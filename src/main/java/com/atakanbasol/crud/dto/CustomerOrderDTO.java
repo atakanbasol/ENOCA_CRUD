@@ -10,6 +10,10 @@ public class CustomerOrderDTO {
         this.id = id;
     }
 
+    public CustomerOrderDTO() {
+
+    }
+
     public Long getId() {
         return id;
     }
