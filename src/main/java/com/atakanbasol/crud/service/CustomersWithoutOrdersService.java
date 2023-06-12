@@ -4,13 +4,11 @@ import com.atakanbasol.crud.data.entity.CustomerEntity;
 import com.atakanbasol.crud.data.repository.CustomerRepository;
 import com.atakanbasol.crud.dto.CustomerOrderDTO;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
-@Transactional
 public class CustomersWithoutOrdersService {
     private final CustomerRepository customerRepository;
 
@@ -19,19 +17,17 @@ public class CustomersWithoutOrdersService {
     }
 
     public List<CustomerOrderDTO> getCustomersWithoutOrders() {
-        List<CustomerEntity> customersWithoutOrders = customerRepository.findCustomersWithoutOrders();
-        List<CustomerOrderDTO> customerOrderDTOs = new ArrayList<>();
-
-        for (CustomerEntity customer : customersWithoutOrders) {
-            CustomerOrderDTO customerOrderDTO = new CustomerOrderDTO();
-            customerOrderDTO.setId(customer.getId());
-            customerOrderDTO.setName(customer.getName());
-            customerOrderDTO.setAge(customer.getAge());
-            customerOrderDTOs.add(customerOrderDTO);
-        }
-
-        return customerOrderDTOs;
+        List<CustomerEntity> customers = customerRepository.findByOrdersIsNull();
+        return customers.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
     }
 
-    // Diğer servis yöntemleri buraya eklenebilir
+    private CustomerOrderDTO convertToDTO(CustomerEntity customer) {
+        CustomerOrderDTO dto = new CustomerOrderDTO();
+        dto.setId(customer.getId());
+        dto.setName(customer.getName());
+        dto.setAge(customer.getAge());
+        return dto;
+    }
 }
