@@ -5,6 +5,11 @@ public class CustomerOrderDTO {
     private String name;
     private Integer age;
 
+    public CustomerOrderDTO(String name, Long id) {
+        this.name = name;
+        this.id = id;
+    }
+
     public Long getId() {
         return id;
     }
