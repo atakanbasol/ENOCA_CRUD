@@ -5,6 +5,7 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -26,6 +27,10 @@ public class OrderEntity {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private CustomerEntity customer;
+
+    @Column(name = "order_date")
+    private LocalDate orderDate;
+
 
     public Date getCreateDate() {
         return createDate;
