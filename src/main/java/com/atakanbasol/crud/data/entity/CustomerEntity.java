@@ -21,7 +21,7 @@ public class CustomerEntity {
     private String name;
     private Integer age;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private List<OrderEntity> orders;
 }
 
