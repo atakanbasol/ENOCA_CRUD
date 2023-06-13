@@ -38,7 +38,6 @@
             <version>8.0.26</version>
         </dependency>
 
-        <!-- Redis bağımlılığı -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>

@@ -38,7 +38,6 @@ public class CustomerService {
             existingCustomer.setAge(customer.getAge());
             return customerRepository.save(existingCustomer);
         } else {
-            // Güncellenecek müşteri bulunamadığında, gelen müşteri nesnesini geri döndürme
             return customer;
         }
     }
